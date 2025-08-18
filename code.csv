@@ -1,0 +1,1253 @@
+,natural_language,code
+0,Generate Python code to implement Linear Regression and test it on a sample dataset,"from sklearn.linear_model import LinearRegression
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample regression dataset
+X, y = make_regression(n_samples=100, n_features=1, noise=10, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Mean Squared Error:"", mean_squared_error(y_test, y_pred))"
+1,Create a program for Logistic Regression with sample data and print accuracy,"from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Generate sample classification dataset
+X, y = make_classification(n_samples=100, n_features=4, n_classes=2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+2,Write code to implement Decision Tree Classifier and evaluate with sample data,"from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+3,Produce Python program to perform Support Vector Machine classification,"from sklearn.svm import SVC
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = SVC()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+4,Build code for K-Nearest Neighbors classifier with sample data,"from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+5,Create program to implement Random Forest Classifier on sample data,"from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+6,Write code for Gradient Boosting Classifier with verification on sample data,"from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = GradientBoostingClassifier()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+7,Implement AdaBoost Classifier with sample data and output accuracy,"from sklearn.ensemble import AdaBoostClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = AdaBoostClassifier()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+8,Create Python code to perform Naive Bayes classification on sample dataset,"from sklearn.naive_bayes import GaussianNB
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+9,Produce code for Linear Discriminant Analysis with verification data,"from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = LinearDiscriminantAnalysis()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+10,Write program to implement Quadratic Discriminant Analysis with sample data,"from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = QuadraticDiscriminantAnalysis()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+11,Build Python program for Perceptron classifier with test data,"from sklearn.linear_model import Perceptron
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = Perceptron()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+12,Create program for Stochastic Gradient Descent Classifier with sample dataset,"from sklearn.linear_model import SGDClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = SGDClassifier()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+13,Write code to implement Passive Aggressive Classifier on sample data,"from sklearn.linear_model import PassiveAggressiveClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = PassiveAggressiveClassifier()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+14,Generate Python code for Multi-layer Perceptron Classifier with sample data,"from sklearn.neural_network import MLPClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = MLPClassifier(max_iter=1000)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+15,Produce code to implement Bagging Classifier with verification on sample data,"from sklearn.ensemble import BaggingClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.tree import DecisionTreeClassifier
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize base estimator and bagging classifier
+base_estimator = DecisionTreeClassifier()
+model = BaggingClassifier(base_estimator=base_estimator, n_estimators=10)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+16,Build Python program for Extra Trees Classifier using sample data,"from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load iris dataset
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize and train model
+model = ExtraTreesClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print(""Accuracy:"", accuracy_score(y_test, y_pred))"
+17,Write code for Isolation Forest anomaly detection with sample dataset,"from sklearn.ensemble import IsolationForest
+from sklearn.datasets import make_blobs
+
+# Generate sample data
+X, _ = make_blobs(n_samples=300, centers=1, cluster_std=0.5, random_state=42)
+
+# Initialize and fit Isolation Forest
+model = IsolationForest(contamination=0.1, random_state=42)
+model.fit(X)
+
+# Predict anomalies
+anomalies = model.predict(X)
+print(""Anomalies count:"", list(anomalies).count(-1))"
+18,Create Python code for Principal Component Analysis (PCA) on sample data,"from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+
+# Load iris dataset
+data = load_iris()
+X = data.data
+
+# Initialize and fit PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+# Plot the PCA result
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=data.target)
+plt.xlabel('PC1')
+plt.ylabel('PC2')
+plt.title('PCA on Iris Dataset')
+plt.show()"
+19,Write code to perform t-Distributed Stochastic Neighbor Embedding (t-SNE) with sample data,"from sklearn.manifold import TSNE
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+
+# Load iris dataset
+data = load_iris()
+X = data.data
+
+# Initialize and fit t-SNE
+tsne = TSNE(n_components=2, random_state=42)
+X_tsne = tsne.fit_transform(X)
+
+# Plot the t-SNE result
+plt.scatter(X_tsne[:, 0], X_tsne[:, 1], c=data.target)
+plt.xlabel('Dim 1')
+plt.ylabel('Dim 2')
+plt.title('t-SNE on Iris Dataset')
+plt.show()"
+20,Produce code for Kernel PCA with sample dataset and visualization,"from sklearn.decomposition import KernelPCA
+from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+
+# Load iris dataset
+data = load_iris()
+X = data.data
+
+# Initialize and fit Kernel PCA
+kpca = KernelPCA(n_components=2, kernel='rbf')
+X_kpca = kpca.fit_transform(X)
+
+# Plot the Kernel PCA result
+plt.scatter(X_kpca[:, 0], X_kpca[:, 1], c=data.target)
+plt.xlabel('KPCA1')
+plt.ylabel('KPCA2')
+plt.title('Kernel PCA on Iris Dataset')
+plt.show()"
+21,Build a program for K-Means clustering with sample data and plot results,"from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
+
+# Generate sample data
+X, y = make_blobs(n_samples=300, centers=4, random_state=42)
+
+# Initialize and fit KMeans
+kmeans = KMeans(n_clusters=4, random_state=42)
+kmeans.fit(X)
+
+# Plot the clustering result
+plt.scatter(X[:, 0], X[:, 1], c=kmeans.labels_)
+plt.title('K-Means Clustering')
+plt.show()"
+22,Create code to implement Agglomerative Hierarchical Clustering with sample data,"from sklearn.cluster import AgglomerativeClustering
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
+
+# Generate sample data
+X, y = make_blobs(n_samples=300, centers=3, random_state=42)
+
+# Initialize and fit Agglomerative Clustering
+agglo = AgglomerativeClustering(n_clusters=3)
+labels = agglo.fit_predict(X)
+
+# Plot the clusters
+plt.scatter(X[:, 0], X[:, 1], c=labels)
+plt.title('Agglomerative Clustering')
+plt.show()"
+23,Write Python program to perform DBSCAN clustering with sample data and plot,"from sklearn.cluster import DBSCAN
+from sklearn.datasets import make_moons
+import matplotlib.pyplot as plt
+
+# Generate sample data
+X, y = make_moons(n_samples=300, noise=0.05, random_state=42)
+
+# Initialize and fit DBSCAN
+dbscan = DBSCAN(eps=0.2, min_samples=5)
+labels = dbscan.fit_predict(X)
+
+# Plot clusters
+plt.scatter(X[:, 0], X[:, 1], c=labels)
+plt.title('DBSCAN Clustering')
+plt.show()"
+24,Generate code for Gaussian Mixture Model clustering with sample dataset,"from sklearn.mixture import GaussianMixture
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
+
+# Generate sample data
+X, y = make_blobs(n_samples=300, centers=3, random_state=42)
+
+# Initialize and fit Gaussian Mixture Model
+gmm = GaussianMixture(n_components=3, random_state=42)
+gmm.fit(X)
+labels = gmm.predict(X)
+
+# Plot the clustering result
+plt.scatter(X[:, 0], X[:, 1], c=labels)
+plt.title('Gaussian Mixture Model Clustering')
+plt.show()"
+25,Create Python code for Isolation Forest anomaly detection with sample data,"from sklearn.ensemble import IsolationForest
+from sklearn.datasets import make_blobs
+
+# Generate sample data
+X, _ = make_blobs(n_samples=300, centers=1, cluster_std=0.5, random_state=42)
+
+# Initialize and fit Isolation Forest
+model = IsolationForest(contamination=0.1, random_state=42)
+model.fit(X)
+
+# Predict anomalies
+anomalies = model.predict(X)
+print('Number of anomalies detected:', list(anomalies).count(-1))"
+26,Build code to perform One-Class SVM anomaly detection on sample data,"from sklearn.svm import OneClassSVM
+from sklearn.datasets import make_blobs
+
+# Generate sample data
+X, _ = make_blobs(n_samples=300, centers=1, cluster_std=0.5, random_state=42)
+
+# Initialize and fit One-Class SVM
+model = OneClassSVM(nu=0.1, kernel='rbf', gamma=0.1)
+model.fit(X)
+
+# Predict anomalies
+anomalies = model.predict(X)
+print('Number of anomalies detected:', list(anomalies).count(-1))"
+27,Produce code for Linear Regression with Polynomial Features using sample data,"from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample regression data
+X, y = make_regression(n_samples=100, n_features=1, noise=15, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Create polynomial regression model
+model = make_pipeline(PolynomialFeatures(degree=3), LinearRegression())
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+28,Write Python program to perform Ridge Regression on sample data,"from sklearn.linear_model import Ridge
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train Ridge Regression model
+model = Ridge(alpha=1.0)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+29,Generate code to perform Lasso Regression with sample dataset,"from sklearn.linear_model import Lasso
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train Lasso Regression
+model = Lasso(alpha=0.1)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+30,Create Python code for Elastic Net Regression with sample data,"from sklearn.linear_model import ElasticNet
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train Elastic Net Regression
+model = ElasticNet(alpha=0.1, l1_ratio=0.7)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+31,Build program for Bayesian Ridge Regression on sample dataset,"from sklearn.linear_model import BayesianRidge
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train Bayesian Ridge Regression
+model = BayesianRidge()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+32,Write code for Stochastic Gradient Descent Regression with sample data,"from sklearn.linear_model import SGDRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train SGD Regressor
+model = SGDRegressor(max_iter=1000, tol=1e-3)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+33,Generate Python code to perform K-Nearest Neighbors Regression with sample data,"from sklearn.neighbors import KNeighborsRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample regression data
+X, y = make_regression(n_samples=100, n_features=1, noise=15, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train KNN Regressor
+model = KNeighborsRegressor(n_neighbors=3)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+34,Create a program for Extra Trees Regressor with sample data,"from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=15, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize and train Extra Trees Regressor
+model = ExtraTreesRegressor(n_estimators=100)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+35,Write Python code for AdaBoost Regressor with verification data,"from sklearn.ensemble import AdaBoostRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.tree import DecisionTreeRegressor
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=15, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize base estimator and AdaBoost Regressor
+base_estimator = DecisionTreeRegressor(max_depth=4)
+model = AdaBoostRegressor(base_estimator=base_estimator, n_estimators=50, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+36,Build program to implement Bagging Regressor with sample data,"from sklearn.ensemble import BaggingRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.tree import DecisionTreeRegressor
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=2, noise=15, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize base estimator and Bagging Regressor
+base_estimator = DecisionTreeRegressor()
+model = BaggingRegressor(base_estimator=base_estimator, n_estimators=10, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Squared Error:', mean_squared_error(y_test, y_pred))"
+37,Produce Python code for Quantile Regression using Gradient Boosting,"from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
+
+# Generate sample data
+X, y = make_regression(n_samples=100, n_features=1, noise=10, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Initialize Gradient Boosting Regressor for quantile regression
+model = GradientBoostingRegressor(loss='quantile', alpha=0.9, n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Mean Absolute Error:', mean_absolute_error(y_test, y_pred))"
+38,Create code for Isolation Forest anomaly detection on synthetic data,"from sklearn.ensemble import IsolationForest
+from sklearn.datasets import make_blobs
+
+# Generate sample data
+X, _ = make_blobs(n_samples=300, centers=1, cluster_std=0.5, random_state=42)
+
+# Initialize and train Isolation Forest
+model = IsolationForest(contamination=0.1, random_state=42)
+model.fit(X)
+
+# Detect anomalies
+anomalies = model.predict(X)
+print('Number of anomalies:', list(anomalies).count(-1))"
+39,Write Python program to perform One-Class SVM anomaly detection,"from sklearn.svm import OneClassSVM
+from sklearn.datasets import make_blobs
+
+# Generate sample data
+X, _ = make_blobs(n_samples=300, centers=1, cluster_std=0.5, random_state=42)
+
+# Initialize One-Class SVM
+model = OneClassSVM(nu=0.1, kernel='rbf', gamma=0.1)
+model.fit(X)
+
+# Detect anomalies
+anomalies = model.predict(X)
+print('Number of anomalies:', list(anomalies).count(-1))"
+40,Generate Python code to perform cross-validation on Logistic Regression,"from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import make_classification
+from sklearn.model_selection import cross_val_score
+
+# Generate sample data
+X, y = make_classification(n_samples=100, n_features=4, n_classes=2, random_state=42)
+
+# Initialize Logistic Regression model
+model = LogisticRegression()
+
+# Perform 5-fold cross-validation
+scores = cross_val_score(model, X, y, cv=5)
+print('Cross-validation scores:', scores)
+print('Mean accuracy:', scores.mean())"
+41,Create code for hyperparameter tuning using GridSearchCV on Random Forest,"from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import GridSearchCV
+
+# Load iris dataset
+data = load_iris()
+X, y = data.data, data.target
+
+# Initialize model
+model = RandomForestClassifier(random_state=42)
+
+# Define parameter grid
+grid = {'n_estimators': [50, 100], 'max_depth': [None, 10, 20]}
+
+# Setup GridSearchCV
+grid_search = GridSearchCV(model, param_grid=grid, cv=3)
+grid_search.fit(X, y)
+
+print('Best parameters:', grid_search.best_params_)
+print('Best score:', grid_search.best_score_)"
+42,Write program to save and load a trained model using joblib,"from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+import joblib
+
+# Generate sample data
+X, y = make_classification(n_samples=100, n_features=4, n_classes=2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Train model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Save model
+joblib.dump(model, 'logistic_model.joblib')
+
+# Load model
+loaded_model = joblib.load('logistic_model.joblib')
+
+# Predict with loaded model
+print('Loaded model accuracy:', loaded_model.score(X_test, y_test))"
+43,Build Python code to plot learning curve of a classifier,"from sklearn.datasets import load_iris
+from sklearn.model_selection import learning_curve
+from sklearn.linear_model import LogisticRegression
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Initialize model
+model = LogisticRegression(max_iter=1000)
+
+# Calculate learning curve
+train_sizes, train_scores, test_scores = learning_curve(model, X, y, cv=5, train_sizes=np.linspace(0.1, 1.0, 5))
+
+# Calculate mean and std
+train_mean = train_scores.mean(axis=1)
+test_mean = test_scores.mean(axis=1)
+
+# Plot
+plt.plot(train_sizes, train_mean, label='Training score')
+plt.plot(train_sizes, test_mean, label='Cross-validation score')
+plt.xlabel('Training Set Size')
+plt.ylabel('Score')
+plt.title('Learning Curve')
+plt.legend()
+plt.show()"
+44,Produce code to calculate confusion matrix for a classification model,"from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load data
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Train model
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+# Predict
+y_pred = model.predict(X_test)
+
+# Compute confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+
+# Plot
+sns.heatmap(cm, annot=True, fmt='d')
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.show()"
+45,Create program to calculate ROC curve and AUC for binary classification,"from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
+
+# Generate data
+X, y = make_classification(n_samples=1000, n_features=20, n_classes=2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Train model
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+# Predict probabilities
+y_scores = model.predict_proba(X_test)[:,1]
+
+# Compute ROC curve and AUC
+fpr, tpr, thresholds = roc_curve(y_test, y_scores)
+roc_auc = auc(fpr, tpr)
+
+# Plot
+plt.plot(fpr, tpr, label=f'ROC curve (area = {roc_auc:.2f})')
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc='lower right')
+plt.show()"
+46,Write Python code to perform Stratified K-Fold cross-validation,"from sklearn.datasets import load_iris
+from sklearn.model_selection import StratifiedKFold
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+import numpy as np
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Initialize model
+model = LogisticRegression(max_iter=1000)
+
+# Stratified K-Fold
+skf = StratifiedKFold(n_splits=5)
+accuracies = []
+for train_index, test_index in skf.split(X, y):
+    X_train, X_test = X[train_index], X[test_index]
+    y_train, y_test = y[train_index], y[test_index]
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    accuracies.append(accuracy_score(y_test, y_pred))
+
+print('Cross-validation accuracies:', accuracies)
+print('Mean accuracy:', np.mean(accuracies))"
+47,Generate Python code to implement Early Stopping in training an MLPClassifier,"from sklearn.neural_network import MLPClassifier
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load digits dataset
+data = load_digits()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize MLPClassifier with early stopping
+model = MLPClassifier(max_iter=1000, early_stopping=True, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred = model.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, y_pred))"
+48,Create program for feature scaling using StandardScaler,"from sklearn.datasets import load_iris
+from sklearn.preprocessing import StandardScaler
+
+# Load iris dataset
+data = load_iris()
+X = data.data
+
+# Initialize StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+print('Original mean:', X.mean(axis=0))
+print('Scaled mean:', X_scaled.mean(axis=0))"
+49,Write Python code to perform Min-Max normalization on sample data,"from sklearn.datasets import load_iris
+from sklearn.preprocessing import MinMaxScaler
+
+# Load iris dataset
+data = load_iris()
+X = data.data
+
+# Initialize MinMaxScaler
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+
+print('Original min:', X.min(axis=0))
+print('Scaled min:', X_scaled.min(axis=0))"
+50,Build code to perform One-Hot Encoding using pandas,"import pandas as pd
+
+# Sample categorical data
+data = {'color': ['red', 'green', 'blue', 'green', 'red']}
+df = pd.DataFrame(data)
+
+# Perform One-Hot Encoding
+df_encoded = pd.get_dummies(df, columns=['color'])
+print(df_encoded)"
+51,Create Python program for label encoding categorical variables,"from sklearn.preprocessing import LabelEncoder
+
+# Sample categorical data
+categories = ['red', 'green', 'blue', 'green', 'red']
+
+# Initialize LabelEncoder
+le = LabelEncoder()
+encoded = le.fit_transform(categories)
+print('Encoded labels:', encoded)
+print('Original classes:', le.classes_)"
+52,Write code to handle missing data by imputing mean values,"import numpy as np
+from sklearn.impute import SimpleImputer
+
+# Sample data with missing values
+X = [[1, 2], [np.nan, 3], [7, 6], [np.nan, np.nan]]
+
+# Initialize SimpleImputer with mean strategy
+imputer = SimpleImputer(strategy='mean')
+X_imputed = imputer.fit_transform(X)
+print('Imputed Data:\n', X_imputed)"
+53,Produce Python code to detect multicollinearity using Variance Inflation Factor (VIF),"import pandas as pd
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+# Sample data
+data = {'X1': [1, 2, 3, 4, 5], 'X2': [2, 4, 6, 8, 10], 'X3': [5, 3, 6, 2, 1]}
+df = pd.DataFrame(data)
+
+# Calculate VIF
+vif_data = pd.DataFrame()
+vif_data['feature'] = df.columns
+vif_data['VIF'] = [variance_inflation_factor(df.values, i) for i in range(len(df.columns))]
+print(vif_data)"
+54,Build code to plot feature importance using Random Forest,"import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Train Random Forest
+model = RandomForestClassifier(random_state=42)
+model.fit(X, y)
+
+# Plot feature importances
+plt.bar(data.feature_names, model.feature_importances_)
+plt.title('Feature Importance')
+plt.xticks(rotation=45)
+plt.show()"
+55,Write Python program to perform text vectorization using TF-IDF,"from sklearn.feature_extraction.text import TfidfVectorizer
+
+# Sample text data
+docs = ['Machine learning is great', 'Python is a great programming language', 'I love coding in Python']
+
+# Initialize TF-IDF Vectorizer
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(docs)
+
+print('Feature names:', vectorizer.get_feature_names_out())
+print('TF-IDF matrix:\n', X.toarray())"
+56,Create program to perform sentiment analysis using TextBlob,"from textblob import TextBlob
+
+# Sample texts
+texts = ['I love this product', 'This is the worst experience', 'It is okay, not great']
+
+# Analyze sentiment
+for text in texts:
+    blob = TextBlob(text)
+    print(f'Text: {text}')
+    print(f'Sentiment polarity: {blob.sentiment.polarity}')
+    print('---')"
+57,Generate Python code to split dataset into train and test sets,"from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+print('Training set size:', X_train.shape[0])
+print('Test set size:', X_test.shape[0])"
+58,"Write code to calculate evaluation metrics: precision, recall, and F1-score","from sklearn.metrics import precision_score, recall_score, f1_score
+
+# Sample true and predicted labels
+y_true = [0, 1, 1, 0, 1, 0]
+y_pred = [0, 0, 1, 0, 1, 1]
+
+print('Precision:', precision_score(y_true, y_pred))
+print('Recall:', recall_score(y_true, y_pred))
+print('F1-score:', f1_score(y_true, y_pred))"
+59,Build Python program to plot precision-recall curve,"from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import precision_recall_curve
+import matplotlib.pyplot as plt
+
+# Generate data
+X, y = make_classification(n_samples=1000, n_features=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Train model
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+# Predict probabilities
+y_scores = model.predict_proba(X_test)[:,1]
+
+# Compute precision-recall curve
+precision, recall, thresholds = precision_recall_curve(y_test, y_scores)
+
+# Plot
+plt.plot(recall, precision)
+plt.xlabel('Recall')
+plt.ylabel('Precision')
+plt.title('Precision-Recall Curve')
+plt.show()"
+60,Create program for K-Fold cross-validation with Random Forest Classifier,"from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import KFold, cross_val_score
+import numpy as np
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Initialize model
+model = RandomForestClassifier(random_state=42)
+
+# Setup K-Fold
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+
+# Cross-validation scores
+scores = cross_val_score(model, X, y, cv=kf)
+print('Cross-validation scores:', scores)
+print('Mean score:', np.mean(scores))"
+61,Generate Python code to train a Support Vector Machine (SVM) classifier with RBF kernel,"from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+
+# Load dataset
+iris = datasets.load_iris()
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, random_state=42)
+
+# Initialize SVM classifier with RBF kernel
+svm = SVC(kernel='rbf', gamma='scale')
+svm.fit(X_train, y_train)
+
+# Predict and evaluate
+preds = svm.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, preds))"
+62,Create code to implement Gradient Boosting Classifier and evaluate with accuracy,"from sklearn.datasets import load_breast_cancer
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data
+data = load_breast_cancer()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Train Gradient Boosting
+model = GradientBoostingClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+preds = model.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, preds))"
+63,Write Python program to train a K-Nearest Neighbors (KNN) classifier,"from sklearn.datasets import load_iris
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Initialize KNN
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+# Predict and evaluate
+preds = knn.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, preds))"
+64,Generate code to perform cross-validation with Logistic Regression,"from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import cross_val_score
+import numpy as np
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Initialize Logistic Regression
+model = LogisticRegression(max_iter=200)
+
+# Perform 5-fold cross-validation
+scores = cross_val_score(model, X, y, cv=5)
+print('Cross-validation scores:', scores)
+print('Mean accuracy:', np.mean(scores))"
+65,Write Python code to implement decision tree classification and visualize the tree,"from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+
+# Load data
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Train Decision Tree
+clf = DecisionTreeClassifier(random_state=42)
+clf.fit(X_train, y_train)
+
+# Plot tree
+plt.figure(figsize=(12,8))
+plot_tree(clf, feature_names=data.feature_names, class_names=data.target_names, filled=True)
+plt.show()"
+66,Create program to train a Naive Bayes classifier on iris dataset,"from sklearn.datasets import load_iris
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Train Gaussian Naive Bayes
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+preds = model.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, preds))"
+67,Generate Python code to perform ROC curve plotting for a binary classifier,"import matplotlib.pyplot as plt
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_curve, auc
+
+# Generate synthetic data
+X, y = make_classification(n_samples=1000, n_features=20, n_classes=2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Train Logistic Regression
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+# Predict probabilities
+probs = model.predict_proba(X_test)[:,1]
+
+# Compute ROC curve
+fpr, tpr, thresholds = roc_curve(y_test, probs)
+roc_auc = auc(fpr, tpr)
+
+# Plot
+plt.plot(fpr, tpr, label=f'ROC curve (area = {roc_auc:.2f})')
+plt.plot([0,1], [0,1], linestyle='--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('Receiver Operating Characteristic')
+plt.legend(loc='lower right')
+plt.show()"
+68,Write code to perform feature selection using SelectKBest and chi2,"from sklearn.datasets import load_iris
+from sklearn.feature_selection import SelectKBest, chi2
+
+# Load data
+data = load_iris()
+X, y = data.data, data.target
+
+# Feature selection
+selector = SelectKBest(score_func=chi2, k=2)
+X_new = selector.fit_transform(X, y)
+print('Selected features shape:', X_new.shape)"
+69,Create Python program to implement AdaBoost classifier with decision trees,"from sklearn.datasets import load_breast_cancer
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data
+data = load_breast_cancer()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Base estimator
+base_clf = DecisionTreeClassifier(max_depth=1)
+
+# AdaBoost classifier
+model = AdaBoostClassifier(base_estimator=base_clf, n_estimators=50, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+preds = model.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, preds))"
+70,Generate code to implement polynomial feature expansion and train linear regression,"from sklearn.datasets import load_boston
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# Load data
+data = load_boston()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Polynomial features
+poly = PolynomialFeatures(degree=2)
+X_train_poly = poly.fit_transform(X_train)
+X_test_poly = poly.transform(X_test)
+
+# Train Linear Regression
+model = LinearRegression()
+model.fit(X_train_poly, y_train)
+
+# Predict and evaluate
+preds = model.predict(X_test_poly)
+mse = mean_squared_error(y_test, preds)
+print('Mean Squared Error:', mse)"
+71,Write Python program to apply BaggingClassifier on a decision tree,"from sklearn.datasets import load_iris
+from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Load data
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+
+# Base estimator
+base_clf = DecisionTreeClassifier()
+
+# Bagging
+model = BaggingClassifier(base_estimator=base_clf, n_estimators=10, random_state=42)
+model.fit(X_train, y_train)
+
+# Predict and evaluate
+preds = model.predict(X_test)
+print('Accuracy:', accuracy_score(y_test, preds))"
+72,Create Python code to train a neural network using PyTorch for binary classification,"import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+
+# Generate data
+X, y = make_classification(n_samples=500, n_features=10, n_classes=2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Scale features
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Convert to tensors
+torch_X_train = torch.tensor(X_train, dtype=torch.float32)
+torch_y_train = torch.tensor(y_train, dtype=torch.float32).unsqueeze(1)
+torch_X_test = torch.tensor(X_test, dtype=torch.float32)
+torch_y_test = torch.tensor(y_test, dtype=torch.float32).unsqueeze(1)
+
+# Define simple NN
+class Net(nn.Module):
+    def _init(self):
+        super(Net, self).init_()
+        self.fc1 = nn.Linear(10, 16)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(16, 1)
+        self.sigmoid = nn.Sigmoid()
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.sigmoid(self.fc2(x))
+        return x
+
+model = Net()
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+# Training loop
+for epoch in range(100):
+    optimizer.zero_grad()
+    outputs = model(torch_X_train)
+    loss = criterion(outputs, torch_y_train)
+    loss.backward()
+    optimizer.step()
+
+# Evaluate accuracy
+with torch.no_grad():
+    predicted = model(torch_X_test).round()
+    accuracy = (predicted.eq(torch_y_test).sum().item()) / torch_y_test.size(0)
+    print(f'Accuracy: {accuracy:.4f}')"
+73,Generate Python code to perform text preprocessing with NLTK including tokenization and stopword removal,"import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+nltk.download('punkt')
+nltk.download('stopwords')
+
+text = 'This is an example sentence demonstrating text preprocessing.'
+
+# Tokenize
+words = word_tokenize(text)
+
+# Remove stop"
