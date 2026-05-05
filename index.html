@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGen-2B | Pro Workspace</title>
+    <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/editor/editor.main.min.css">
+    <style>
+        :root {
+            --bg-deep: #080a0e;
+            --bg-main: #0f111a;
+            --bg-sidebar: #0a0c12;
+            --bg-card: #161922;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --terminal-bg: #050505;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0;
+            flex-shrink: 0;
+        }
+
+        .nav-item {
+            padding: 12px 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding-left: 28px;
+        }
+
+        .workspace {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            background: radial-gradient(circle at top right, #1e293b 0%, var(--bg-deep) 40%);
+        }
+
+        .main-block {
+            width: 100%;
+            max-width: 1450px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 20px;
+            height: 520px;
+        }
+
+        .glass-panel {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .panel-header {
+            background-color: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        #monaco-container { flex-grow: 1; }
+
+        .output-area {
+            background-color: var(--terminal-bg);
+            flex-grow: 1;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            overflow-y: auto;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .run-bar {
+            padding: 12px 20px;
+            background: rgba(15, 17, 26, 0.8);
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-run { background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; }
+        .btn-summarize { background: #6366f1; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; }
+        .btn-fix { background: #f59e0b; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; }
+        .btn-translate { background: #ec4899; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 700; }
+
+        .chat-input-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 16px 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .chat-textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            outline: none;
+            resize: none;
+            min-height: 40px;
+        }
+
+        .chat-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn-generate {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .lang-dropdown {
+            background: #1e293b;
+            color: #3b82f6;
+            border: 1px solid #334155;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="nav-item"><span>✦</span> NEW SESSION</div>
+        <div class="nav-item"><span>◈</span> WORKSPACE HISTORY</div>
+        <div class="nav-item"><span>◎</span> USER SETTINGS</div>
+    </div>
+
+    <div class="workspace">
+        <div class="main-block">
+            
+            <div class="top-row">
+                <div class="glass-panel">
+                    <div class="panel-header">
+                        <span>Source Editor</span>
+                        <select class="lang-dropdown" id="langSelect">
+                            <option value="python">PYTHON</option>
+                            <option value="javascript">JAVASCRIPT</option>
+                            <option value="cpp">C++</option>
+                            <option value="java">JAVA</option>
+                        </select>
+                    </div>
+                    <div id="monaco-container"></div>
+                    <div class="run-bar">
+                        <button class="btn-run" onclick="runCode()">RUN</button>
+                        <button class="btn-summarize" onclick="summarizeCode()">SUMMARIZE</button>
+                        <button class="btn-fix" onclick="fixErrors()">FIX BUGS</button>
+                        
+                        <div style="border-left: 1px solid var(--border); height: 24px; margin: 0 5px;"></div>
+                        
+                        <button class="btn-translate" onclick="translateCode()">TO -></button>
+                        <select class="lang-dropdown" id="targetLangSelect">
+                            <option value="javascript">JAVASCRIPT</option>
+                            <option value="python">PYTHON</option>
+                            <option value="cpp">C++</option>
+                            <option value="java">JAVA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="glass-panel">
+                    <div class="panel-header">Kernel Output</div>
+                    <div class="output-area" id="terminalOutput">
+<span style="color: var(--text-muted)">// Kernel 2.0.1 initialized...</span>
+<span style="color: var(--text-muted)">// System status: Optimal</span></div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <textarea class="chat-textarea" id="promptField" placeholder="Describe the function you need..."></textarea>
+                <div class="chat-actions">
+                    <button style="background:none; border:none; color:var(--text-muted); cursor:pointer;" onclick="document.getElementById('promptField').value=''">CLEAR</button>
+                    <button class="btn-generate" onclick="generateCode()">✨ GENERATE LOGIC</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
+    <script>
+        const BACKEND_URL = "https://logan-rollicksome-jazlyn.ngrok-free.dev"; 
+
+        let editor;
+
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            editor = monaco.editor.create(document.getElementById('monaco-container'), {
+                value: "# CodeGen-2B Pro\ndef init_process():\n    print('Ready for logic...')",
+                language: 'python',
+                theme: 'vs-dark',
+                automaticLayout: true,
+                fontSize: 14,
+                minimap: { enabled: false }
+            });
+
+            // Update highlighting when dropdown changes
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                monaco.editor.setModelLanguage(editor.getModel(), e.target.value);
+            });
+        });
+
+        const terminal = document.getElementById('terminalOutput');
+
+        function updateTerminal(msg, color = "#e2e8f0") {
+            terminal.innerHTML += `\n<span style="color: ${color}">${msg}</span>`;
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        // 1. Generate Logic
+        async function generateCode() {
+            const promptField = document.getElementById('promptField');
+            const prompt = promptField.value;
+            if(!prompt) return;
+
+            updateTerminal(`[AI] Generating for: ${prompt.substring(0, 30)}...`, "#3b82f6");
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/generate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        prompt: prompt,
+                        language: document.getElementById('langSelect').value 
+                    })
+                });
+                const data = await response.json();
+                editor.setValue(data.code);
+                promptField.value = "";
+                updateTerminal("[Success] Logic injected.", "#10b981");
+            } catch (error) {
+                updateTerminal("[Error] Generation failed.", "#ef4444");
+            }
+        }
+
+        // 2. Summarize Code
+        async function summarizeCode() {
+            updateTerminal("[System] Analyzing code structure...", "#6366f1");
+            try {
+                const response = await fetch(`${BACKEND_URL}/summarize`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        code: editor.getValue(),
+                        language: document.getElementById('langSelect').value 
+                    })
+                });
+                const data = await response.json();
+                updateTerminal("\n--- CODE SUMMARY ---", "#f1f5f9");
+                updateTerminal(data.summary, "#94a3b8");
+            } catch (error) {
+                updateTerminal("[Error] Summarization failed.", "#ef4444");
+            }
+        }
+
+        // 3. Fix Errors
+        async function fixErrors() {
+            updateTerminal("[AI] Debugging source code...", "#f59e0b");
+            try {
+                const response = await fetch(`${BACKEND_URL}/fix_errors`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        code: editor.getValue(),
+                        language: document.getElementById('langSelect').value 
+                    })
+                });
+                const data = await response.json();
+                editor.setValue(data.fixed_code);
+                updateTerminal("[Success] Errors corrected and code updated.", "#10b981");
+            } catch (error) {
+                updateTerminal("[Error] Bug fix service unavailable.", "#ef4444");
+            }
+        }
+
+        // 4. Translate Code
+        async function translateCode() {
+            const targetLang = document.getElementById('targetLangSelect').value;
+            updateTerminal(`[AI] Translating code to ${targetLang.toUpperCase()}...`, "#ec4899");
+            
+            try {
+                const response = await fetch(`${BACKEND_URL}/translate`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        code: editor.getValue(),
+                        target_language: targetLang 
+                    })
+                });
+                const data = await response.json();
+                
+                // Set the code
+                editor.setValue(data.translated_code);
+                
+                // Sync the UI language dropdowns and syntax highlighting
+                document.getElementById('langSelect').value = targetLang;
+                monaco.editor.setModelLanguage(editor.getModel(), targetLang);
+                
+                updateTerminal(`[Success] Translated to ${targetLang}.`, "#10b981");
+            } catch (error) {
+                updateTerminal("[Error] Translation failed.", "#ef4444");
+            }
+        }
+
+        // 5. Execute Code
+        async function runCode() {
+            updateTerminal("[Runtime] Executing...", "#10b981");
+            try {
+                const response = await fetch(`${BACKEND_URL}/run`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        code: editor.getValue(),
+                        language: document.getElementById('langSelect').value 
+                    })
+                });
+                const data = await response.json();
+                updateTerminal(data.output);
+            } catch (error) {
+                updateTerminal("[Runtime Error] Connection lost.", "#ef4444");
+            }
+        }
+    </script>
+</body>
+</html>
